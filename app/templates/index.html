@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background: #f0f7ff;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+  }
+
+  .home-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+    padding: 0 6%;
+  }
+
+  .home-text {
+    width: 50%;
+    animation: slideInLeft 1s ease forwards;
+  }
+
+  .home-text h1 {
+    font-size: 3rem;
+    color: #1a1a1a;
+    margin-bottom: 15px;
+  }
+
+  .home-text p {
+    font-size: 1.2rem;
+    color: #555;
+    line-height: 1.6;
+  }
+
+  /* Floating image (no frame) */
+  .image-float {
+    width: 45%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: float 3s ease-in-out infinite;
+    transition: transform 0.3s ease;
+  }
+
+  .image-float:hover {
+    transform: scale(1.05);
+  }
+
+  .image-float img {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.2));
+  }
+
+  /* Animations */
+  @keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+  }
+
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* Responsive layout */
+  @media (max-width: 900px) {
+    .home-container {
+      flex-direction: column;
+      text-align: center;
+      height: auto;
+      padding-top: 60px;
+    }
+
+    .home-text, .image-float {
+      width: 90%;
+    }
+
+    .home-text h1 {
+      font-size: 2.2rem;
+    }
+  }
+</style>
+
+<div class="home-container">
+  <div class="home-text">
+    <h1>Course Recommender System</h1>
+    <p>
+      Discover courses tailored just for you!  
+      Our intelligent system analyzes your interests and learning goals  
+      to recommend the most suitable Udemy courses.  
+      Start exploring and grow your skills today.
+    </p>
+  </div>
+
+  <div class="image-float">
+    <img src="{{ url_for('static', filename='course_recommender.png') }}" alt="Course Recommender Illustration">
+  </div>
+</div>
+{% endblock %}

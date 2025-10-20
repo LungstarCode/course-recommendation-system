@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Course Recommender{% endblock %}</title>
+
+  <style>
+    :root {
+      --main-bg: #f0f7ff;         /* main background color */
+      --header-bg: #d9ecff;       /* slightly darker header */
+      --text-color: #1a1a1a;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--main-bg);
+      font-family: 'Poppins', sans-serif;
+      color: var(--text-color);
+    }
+
+    header {
+      background-color: var(--header-bg);
+      padding: 18px 6%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    header h2 {
+      margin: 0;
+      font-size: 1.6rem;
+      letter-spacing: 0.5px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text-color);
+      margin-left: 20px;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #0077ff;
+    }
+
+    main {
+      padding: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h2>Course Recommender</h2>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>
